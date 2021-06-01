@@ -2,7 +2,7 @@
 ###############################
 # copy kubeconfig from the remote
 USER=packer
-MASTER_IP=192.168.1.61
+MASTER_IP=192.168.1.61 # master ip
 
 scp $USER@$MASTER_IP:/home/$USER/k3s.yaml k3s.yaml # supply a password
 
