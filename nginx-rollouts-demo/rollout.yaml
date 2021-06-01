@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: nginx-rollouts-demo
+spec:
+  replicas: 5
+  strategy:
+    canary:
+      canaryService: nginx-rollouts-demo-canary
+      stableService: nginx-rollouts-demo
+      trafficRouting:
+        nginx:
+          stableIngress: nginx-rollouts-demo
+      steps:
+      - setWeight: 1
+      - pause: {duration: 60}
+      - setWeight: 10
+      - pause: {duration: 30}
+      - setWeight: 50
+      - pause: {duration: 30}
+      - setWeight: 80
+      - pause: {duration: 30}
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: nginx-rollouts-demo
+  template:
+    metadata:
+      labels:
+        app: nginx-rollouts-demo
+    spec:
+      containers:
+      - name: nginx-rollouts-demo
+        image: argoproj/rollouts-demo:yellow
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        resources:
+          requests:
+            memory: 32Mi
+            cpu: 5m
