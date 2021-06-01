@@ -13,7 +13,7 @@
 
 ## Setup steps
 
-1. download image file "ubuntu-16.04.7-server-amd64.iso" into folder **"infra/windows"**
+1. download image file "ubuntu-16.04.7-server-amd64.iso" into folder **"windows"**
    - ISO: [ubuntu-16.04.7-server-amd64.iso](http://releases.ubuntu.com/xenial/ubuntu-16.04.7-server-amd64.iso)
    - Torrent: [ubuntu-16.04.7-server-amd64.iso.torrent](http://releases.ubuntu.com/xenial/ubuntu-16.04.7-server-amd64.iso.torrent) (Recommended)
    - Or choose from http://releases.ubuntu.com/xenial/
