@@ -13,6 +13,7 @@ cp ~/.kube/config ~/.kube/config.bak
 KUBECONFIG=k3s.yaml:~/.kube/config kubectl config view --flatten > config 
 mv config ~/.kube/config
 rm ~/.kube/config.bak
+chmod go-r ~/.kube/config
 
 # install kubectl (https://kubernetes.io/docs/tasks/tools/)
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/amd64/kubectl"
